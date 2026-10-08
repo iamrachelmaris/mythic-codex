@@ -106,5 +106,5 @@ const GEAR={"holy": [[{"s": "Head", "items": [{"n": "Cosmic Penitent's Truesight
 S.holy.who="Ràchel";S.prot.who="Dad";
 S.holy.img="img/holy.jpg";
 S.prot.img="img/prot.jpg";
-S.sam={...S.arcane,base:"arcane",who:"Sàm",img:"img/sam.jpg",eyebrow:"Sàm · Ranged damage",chips:[["Sunfury hero tree","var(--accent)"]]};
-S.mum={...S.arcane,base:"arcane",who:"Mum",img:"img/mum.jpg",eyebrow:"Mum · Ranged damage",chips:[["Sunfury hero tree","var(--accent)"]],logs:null};
+S.sam={...S.arcane,base:"arcane",who:"Sàm",img:"img/sam.jpg?v=2",eyebrow:"Sàm · Ranged damage",chips:[["Sunfury hero tree","var(--accent)"]]};
+S.mum={...S.arcane,base:"arcane",who:"Mum",img:"img/mum.jpg?v=2",eyebrow:"Mum · Ranged damage",chips:[["Sunfury hero tree","var(--accent)"]],logs:null};
