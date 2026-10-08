@@ -608,7 +608,7 @@ function party(){
   return `<section class="sheet" aria-labelledby="tab-party">
   <div class="hero"><div class="crest">${CRESTS.party}</div><div>
     <div class="eyebrow">Group notes</div><h2>The Party</h2></div></div>
-  ${(()=>{const g=["holy","mum","sam","prot"].filter(k=>S[k].img);return g.length?`<figure class="group">${g.map(k=>`<div><img src="${S[k].img}" alt="${S[k].who}'s character"></div>`).join("")}</figure>`:""})()}
+  ${(()=>{const g=["holy","mum","sam","prot"].filter(k=>S[k].img);return g.length?`<figure class="group">${g.map(k=>`<div><img src="${S[k].groupImg||S[k].img}" alt="${S[k].who}'s character"></div>`).join("")}</figure>`:""})()}
   ${toc([["p-plates","Nameplates"],["p-kicks","Interrupts"],["p-dungeons","Dungeons"],["p-logs","Reading logs"]])}
 
   ${sec("p-plates","Nameplate colours",'From the "MF Plater Midnight (Season 2)" profile.',`<ul class="swl">${sw.map(x=>`<li><i style="background:${x[0]}"></i><b>${x[1]}</b><span>${x[2]}</span></li>`).join("")}</ul>`)}
