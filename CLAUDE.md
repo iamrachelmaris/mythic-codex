@@ -6,3 +6,4 @@
 - Light theme only. Must work on phones.
 - After editing: commit and `git push` — GitHub Pages redeploys the live link in ~1 min.
 - Each push: bump the `?v=` on `data.js` in index.html (and on any re-cropped image path) so browsers fetch the new version.
+- Each push: bump the `?v=` on `data.js` in index.html (and on any re-cropped image path) so browsers fetch the new version.
