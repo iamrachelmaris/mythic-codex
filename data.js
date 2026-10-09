@@ -102,7 +102,7 @@ prot:{
 },
 hunter:{
   eyebrow:"Dad · Ranged damage", title:"Beast Mastery Hunter", hero:null,
-  chips:[["Hero tree: Not added yet","var(--muted)"]],
+  chips:[],
   stats:[["Agility",null],["Mastery",1231],["Crit",1098],["Haste",405],["Vers",227]],
   set:{name:"Skulking Viper's Ambush",two:"Barbed Shot causes your pets to stomp one additional time at 50% effectiveness.",four:"Stomp causes your next Cobra Shot to either benefit from Beast Cleave at 30% effectiveness, or strike your primary target for 20% additional damage, stacking up to 4 times."},
   gems:[["Indecipherable Eversong Diamond","Epic · Agility","53.4%"],["Powerful Eversong Diamond","Epic · Agility","17.4%"],["Flawless Deadly Amethyst","Mastery / Crit","59.4%"],["Flawless Masterful Garnet","Crit / Mastery","36.1%"],["Flawless Masterful Peridot","Haste / Mastery","6.7%"]],
