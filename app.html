@@ -611,7 +611,7 @@ function sheet(key){
     <div class="panel"><h4 class="sh">Stat priority</h4>${statStrip(d.stats)}</div>
     <div class="dash" style="margin-top:16px">
       <div class="panel"><h4 class="sh">Parses</h4>${L?parseChart(L):emptyBox(`No logs added for ${who} yet.`)}</div>
-      <div class="panel"><h4 class="sh">Talents</h4>${talentBox}</div>
+      <div class="panel"><h4 class="sh">${d.hero?d.hero+" talents":"Talents"}</h4>${talentBox}</div>
     </div>`)}
 
   ${sec("s-logs","Logs",null,`
