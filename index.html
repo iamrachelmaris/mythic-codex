@@ -450,7 +450,7 @@ details.dung[open]{padding-bottom:16px}
   </footer>
 </div>
 
-<script src="data.js?v=202610091022"></script>
+<script src="data.js?v=202610091905"></script>
 <script>
 const CRESTS = {
   holy:`<svg viewBox="0 0 120 120" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="60" cy="60" r="44" opacity=".35"/><circle cx="60" cy="60" r="34"/><g stroke-linecap="round">${Array.from({length:16},(_,i)=>{const a=i*Math.PI/8,r1=i%2?46:40,r2=i%2?54:58;return `<line x1="${60+r1*Math.cos(a)}" y1="${60+r1*Math.sin(a)}" x2="${60+r2*Math.cos(a)}" y2="${60+r2*Math.sin(a)}"/>`}).join('')}</g><path d="M60 36v48M44 52h32" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="52" r="5" fill="var(--accent-2)" stroke="none"/></svg>`,
@@ -481,7 +481,7 @@ function tip(x){
 
 function parseCol(n){return n>=100?"var(--p-gold)":n>=99?"var(--p-pink)":n>=95?"var(--p-orange)":n>=75?"var(--p-purple)":n>=50?"var(--p-blue)":n>=25?"var(--p-green)":"var(--p-grey)"}
 
-function num(v){if(v==null)return null;v=String(v).replace(/ casts?$/,"");const mm=String(v).match(/^(\d+):(\d\d)$/);if(mm)return +mm[1]*60+ +mm[2];const t=String(v).replace(/,/g,"").replace(/ casts/,"");const m=t.match(/^~?(-?[\d.]+)\s*(m|K|%)?$/);if(!m)return null;return parseFloat(m[1])*(m[2]==="m"?1e6:m[2]==="K"?1e3:1)}
+function num(v){if(v==null)return null;v=String(v).replace(/\s*\(.*\)$/,"").replace(/ casts?$/,"");const mm=String(v).match(/^(\d+):(\d\d)$/);if(mm)return +mm[1]*60+ +mm[2];const t=String(v).replace(/,/g,"").replace(/ casts/,"");const m=t.match(/^~?(-?[\d.]+)\s*(m|K|%)?$/);if(!m)return null;return parseFloat(m[1])*(m[2]==="m"?1e6:m[2]==="K"?1e3:1)}
 function parseChart(l){
   return `<div class="pchart"><div class="prow phead"><span>Run</span><span>Parse out of 100</span></div>
     ${l.parses.map(r=>{const n=typeof r.p==="number";const col=n?parseCol(r.p):"var(--p-purple)";return `<div class="prow" data-tip="${esc(r.d)} · ${r.date}: ${r.p}${r.info?" · "+esc(r.info):""}">
