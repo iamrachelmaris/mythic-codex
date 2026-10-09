@@ -470,7 +470,7 @@ details.dung[open]{padding-bottom:16px}
   </footer>
 </div>
 
-<script src="data.js?v=202610100051"></script>
+<script src="data.js?v=202610100054"></script>
 <script>
 const CRESTS = {
   holy:`<svg viewBox="0 0 120 120" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="60" cy="60" r="44" opacity=".35"/><circle cx="60" cy="60" r="34"/><g stroke-linecap="round">${Array.from({length:16},(_,i)=>{const a=i*Math.PI/8,r1=i%2?46:40,r2=i%2?54:58;return `<line x1="${60+r1*Math.cos(a)}" y1="${60+r1*Math.sin(a)}" x2="${60+r2*Math.cos(a)}" y2="${60+r2*Math.sin(a)}"/>`}).join('')}</g><path d="M60 36v48M44 52h32" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="52" r="5" fill="var(--accent-2)" stroke="none"/></svg>`,
@@ -592,7 +592,8 @@ function sheet(key){
   const jewel=["Neck","Rings"].map(by), weap=["Main hand","Off hand"].map(by).filter(Boolean), trink=[by("Trinkets")];
   const L=d.logs, who=d.who;
   const items=[["s-dash","Dashboard"],["s-logs","Logs"],["s-gear","Gear"],["s-stats","Tier set & gems"]];
-  const talentBox=`${d.talent.note?`<p class="csub" style="color:var(--text)"><strong>${d.talent.note}</strong></p>`:""}
+  const talentBox=`${d.build?`<dl class="facts"><dt>Popularity</dt><dd>${d.build.pop}</dd><dt>Highest key</dt><dd>${d.build.key}</dd><dt>${d.build.out.split(" ").pop()}</dt><dd>${d.build.out.split(" ")[0]}</dd></dl><p class="csub">Recommended build · ${d.build.src}</p>`:`<dl class="facts"><dt>Recommended build</dt><dd>Not added yet</dd></dl>`}
+    ${d.talent.note?`<p class="csub" style="color:var(--text)"><strong>${d.talent.note}</strong></p>`:""}
     ${d.talent.string?`${copyBox(d.talent.string,"Copy string")}<p class="csub">Talent screen → loadout dropdown → Import → paste.</p>`:""}${d.talent.url?`<a class="btnlink" href="${d.talent.url}" target="_blank" rel="noopener">Open the talent tree on Archon ↗</a>`:""}`;
   const none="Not added yet";
   const tiles=[
