@@ -20,7 +20,7 @@
   --f-body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
-body[data-sheet="holy"]{--ink:#fbf6e9;--panel-2:#f5ecd6;--edge:#e9dcb8;--accent:#b8860b;--accent-2:#6b4a00;--glow:rgba(230,185,70,.45);--tipbg:#fffdf6;--tipedge:#ecdcae}
+body[data-sheet="holy"]{--ink:#f7f7f9;--panel-2:#ececf1;--edge:#dcdde4;--accent:#6e7180;--accent-2:#3c3f4c;--glow:rgba(170,175,195,.45);--tipbg:#fdfdfe;--tipedge:#dadbe3}
 body[data-sheet="arcane"]{--ink:#eef7fc;--panel-2:#dff0f9;--edge:#c8e3f2;--accent:#1689b8;--accent-2:#0b4f72;--glow:rgba(30,150,200,.35);--tipbg:#fbfeff;--tipedge:#c6e2f1}
 body[data-sheet="prot"]{--ink:#fdf1f6;--panel-2:#fae0ec;--edge:#f2cadc;--accent:#d24f8c;--accent-2:#8a2257;--glow:rgba(224,96,154,.35);--tipbg:#fffbfd;--tipedge:#f1c9db}
 body[data-sheet="party"]{--ink:#fffbea;--panel-2:#fdf3c6;--edge:#f1e2a2;--accent:#e6b800;--accent-2:#6e5a00;--glow:rgba(230,184,0,.38);--tipbg:#fffdf4;--tipedge:#efdf9c}
@@ -454,7 +454,7 @@ details.dung[open]{padding-bottom:16px}
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Character sheets">
-    <button role="tab" id="tab-holy" data-tab="holy" aria-selected="true"><span class="dot" style="color:#c9971c;background:#c9971c"></span>Ràchel <small>Holy Priest</small></button>
+    <button role="tab" id="tab-holy" data-tab="holy" aria-selected="true"><span class="dot" style="color:#b9bcc8;background:#b9bcc8"></span>Ràchel <small>Holy Priest</small></button>
     <button role="tab" id="tab-mum" data-tab="mum" aria-selected="false"><span class="dot" style="color:#1689b8;background:#1689b8"></span>Mum <small>Arcane Mage</small></button>
     <button role="tab" id="tab-sam" data-tab="sam" aria-selected="false"><span class="dot" style="color:#1689b8;background:#1689b8"></span>Sàm <small>Arcane Mage</small></button>
     <button role="tab" id="tab-hunter" data-tab="hunter" aria-selected="false"><span class="dot" style="color:#AAD372;background:#AAD372"></span>Dad <small>Beast Mastery Hunter</small></button>
@@ -718,7 +718,7 @@ main.addEventListener("click",e=>{
 
 /* ambient motes: light for Holy, sparks for Arcane, embers for Prot */
 const cv=document.getElementById("motes"),cx=cv.getContext("2d");let P=[],mode="holy",raf;
-const MODES={holy:{c:[214,160,40],n:46,vy:-.18,sz:2.2},arcane:{c:[30,150,200],n:60,vy:-.08,sz:1.8,swirl:1},prot:{c:[224,96,154],n:50,vy:-.35,sz:1.9},party:{c:[230,184,0],n:34,vy:-.12,sz:1.6},hunter:{c:[150,200,90],n:44,vy:-.22,sz:1.9}};
+const MODES={holy:{c:[170,176,196],n:46,vy:-.18,sz:2.2},arcane:{c:[30,150,200],n:60,vy:-.08,sz:1.8,swirl:1},prot:{c:[224,96,154],n:50,vy:-.35,sz:1.9},party:{c:[230,184,0],n:34,vy:-.12,sz:1.6},hunter:{c:[150,200,90],n:44,vy:-.22,sz:1.9}};
 function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio}
 function spawn(m,y){return{x:Math.random()*cv.width,y:y??Math.random()*cv.height,r:(Math.random()*.8+.4)*m.sz*devicePixelRatio,a:Math.random()*Math.PI*2,s:Math.random()*.6+.4,l:Math.random()}}
 function setMotes(k){k=(S[k]&&S[k].base)||k;mode=k;const m=MODES[k];P=Array.from({length:m.n},()=>spawn(m))}
