@@ -602,8 +602,7 @@ function sheet(key){
     L&&L.average?{label:"Average parse",ring:L.average.p,sub:L.average.sub}:{label:"Average parse",text:"—",sub:none}];
   return `<section class="sheet" aria-labelledby="tab-${key}">
   <div class="hero${d.img?" has-toon":""}"><div class="crest">${CRESTS[gk]}</div><div>
-    <div class="eyebrow">${d.eyebrow}</div><h2>${d.title}</h2>
-    <div class="who">${d.chips.map(c=>`<span class="chip"><i style="background:${c[1]}"></i>${c[0]}</span>`).join("")}</div></div>${d.img?`<figure class="toon"><img src="${d.img}" alt="${who}'s character"></figure>`:""}</div>
+    <div class="eyebrow">${d.eyebrow}</div><h2>${d.title}</h2></div>${d.img?`<figure class="toon"><img src="${d.img}" alt="${who}'s character"></figure>`:""}</div>
   ${toc(items)}
 
   ${sec("s-dash","Dashboard",null,`
