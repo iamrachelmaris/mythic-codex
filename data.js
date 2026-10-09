@@ -101,8 +101,8 @@ prot:{
   talent:{string:"CIEAAAAAAAAAAAAAAAAAAAAAAsZYWGzYmZmZW2GjZZWmlZMAADAAAAAAaamZZmxMDDbtBgBGwMYDAAAAmZW2WaZmxilFmBwgZ2wAgZGAMzAGL",note:"Ràchel couldn't find a Templar build on Archon, so this is the Lightsmith build instead.",url:"https://www.archon.gg/wow/builds/protection/paladin/mythic-plus/talents/10/all-dungeons/this-week"},
 },
 hunter:{
-  eyebrow:"Dad · Ranged damage", title:"Beast Mastery Hunter", hero:null,
-  chips:[],
+  eyebrow:"Dad · Ranged damage", title:"Beast Mastery Hunter", hero:"Pack Leader",
+  chips:[["Pack Leader hero tree","var(--accent)"]],
   stats:[["Agility",null],["Mastery",1231],["Crit",1098],["Haste",405],["Vers",227]],
   set:{name:"Skulking Viper's Ambush",two:"Barbed Shot causes your pets to stomp one additional time at 50% effectiveness.",four:"Stomp causes your next Cobra Shot to either benefit from Beast Cleave at 30% effectiveness, or strike your primary target for 20% additional damage, stacking up to 4 times."},
   gems:[["Indecipherable Eversong Diamond","Epic · Agility","53.4%"],["Powerful Eversong Diamond","Epic · Agility","17.4%"],["Flawless Deadly Amethyst","Mastery / Crit","59.4%"],["Flawless Masterful Garnet","Crit / Mastery","36.1%"],["Flawless Masterful Peridot","Haste / Mastery","6.7%"]],
