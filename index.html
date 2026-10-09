@@ -254,6 +254,10 @@ h4.sh{font:700 13px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercas
 .bonuses{display:grid;grid-template-columns:90px 1fr;gap:10px 16px;margin:0;max-width:75ch}
 .bonuses dt{font-weight:700;color:var(--green)}
 .bonuses dd{margin:0}
+.work{margin:0 0 18px;padding:12px 16px;border-radius:12px;border-left:4px solid var(--accent);background:var(--panel-2)}
+.work h5{margin:0 0 6px;font:700 13px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
+.work ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.work p{margin:0;color:var(--muted)}
 .notes{margin:0;padding-left:18px;display:grid;gap:8px}
 .swl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px}
 .swl li{display:grid;grid-template-columns:22px 100px 1fr;gap:10px;align-items:center}
@@ -455,7 +459,7 @@ details.dung[open]{padding-bottom:16px}
   </footer>
 </div>
 
-<script src="data.js?v=202610091944"></script>
+<script src="data.js?v=202610091946"></script>
 <script>
 const CRESTS = {
   holy:`<svg viewBox="0 0 120 120" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="60" cy="60" r="44" opacity=".35"/><circle cx="60" cy="60" r="34"/><g stroke-linecap="round">${Array.from({length:16},(_,i)=>{const a=i*Math.PI/8,r1=i%2?46:40,r2=i%2?54:58;return `<line x1="${60+r1*Math.cos(a)}" y1="${60+r1*Math.sin(a)}" x2="${60+r2*Math.cos(a)}" y2="${60+r2*Math.sin(a)}"/>`}).join('')}</g><path d="M60 36v48M44 52h32" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="52" r="5" fill="var(--accent-2)" stroke="none"/></svg>`,
@@ -554,6 +558,12 @@ function statStrip(stats){
 }
 function emptyBox(t){return `<div class="empty">${t}</div>`}
 function factsBlock(c){return `<div class="cblock"><h4 class="sh">${c.title}</h4><p class="csub">${c.sub}</p><dl class="facts">${c.facts.map(f=>`<dt>${f[0]}</dt><dd>${f[1]}</dd>`).join("")}</dl></div>`}
+function learned(L,none){
+  const w=L.working||[], g=L.notes||[];
+  return `<div class="work"><h5>Working on now</h5>${w.length?`<ol>${w.map(x=>`<li>${x}</li>`).join("")}</ol>`:`<p>${none}</p>`}</div>
+  <nav class="dtabs" aria-label="Notes by date">${g.map((x,i)=>`<button type="button" data-ntab="${i}" aria-pressed="${i?"false":"true"}">${x.date}</button>`).join("")}</nav>
+  ${g.map((x,i)=>`<div class="npanel" data-n="${i}"${i?" hidden":""}><ul class="notes">${x.items.map(n=>`<li>${n}</li>`).join("")}</ul></div>`).join("")}`;
+}
 function sheet(key){
   const d=S[key], gk=d.base||key, max=Math.max(...d.stats.filter(s=>s[1]).map(s=>s[1]));
   const all=[...GEAR[gk][0],...GEAR[gk][1],...GEAR[gk][2]], by=n=>all.find(x=>x.s===n);
@@ -584,7 +594,7 @@ function sheet(key){
     </div>`)}
 
   ${sec("s-logs","Logs",null,`
-    <div class="panel"><h4 class="sh">${L?L.notesTitle:"What we learned"}</h4>${L?`<ul class="notes">${L.notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:emptyBox(none)}</div>
+    <div class="panel"><h4 class="sh">${L?L.notesTitle:"What we learned"}</h4>${L?learned(L,none):emptyBox(none)}</div>
     <h4 class="dh">Compared with top players</h4>
     ${L&&L.comparisons.length?`<div class="cstack">${L.comparisons.map(c=>`<div class="panel">${c.kind==="facts"?factsBlock(c):chartBlock(c)}</div>`).join("")}</div>`:`<div class="panel">${emptyBox(none)}</div>`}`)}
 
@@ -680,6 +690,7 @@ tabs.forEach(b=>b.addEventListener("click",()=>{show(b.dataset.tab);try{history.
 main.addEventListener("click",e=>{
   const j=e.target.closest("button[data-jump]"); if(j){showSub(j.dataset.jump); return;}
   const dg=e.target.closest("button[data-dung]"); if(dg){main.querySelectorAll(".dpanel").forEach(p=>p.hidden=p.id!==dg.dataset.dung);main.querySelectorAll("button[data-dung]").forEach(b=>b.setAttribute("aria-pressed",b===dg?"true":"false"));return;}
+  const nt=e.target.closest("button[data-ntab]"); if(nt){const box=nt.closest(".panel");box.querySelectorAll(".npanel").forEach(p=>p.hidden=p.dataset.n!==nt.dataset.ntab);box.querySelectorAll("button[data-ntab]").forEach(x=>x.setAttribute("aria-pressed",x===nt?"true":"false"));return;}
   const b=e.target.closest("button[data-copy]"); if(!b) return;
   const t=b.dataset.copy, done=()=>{const o=b.textContent;b.textContent="Copied";b.classList.add("ok");setTimeout(()=>{b.textContent=o;b.classList.remove("ok")},1600)};
   const sel=()=>{const c=b.previousElementSibling;const r=document.createRange();r.selectNodeContents(c);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected, press Ctrl+C"};
